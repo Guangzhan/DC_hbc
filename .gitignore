@@ -1,6 +1,5 @@
 # data
-result/*.csv
-result/*.xlsx
+result
 feature
 
 # OS related
