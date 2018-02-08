@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 import os
-os.chdir('E:/develop/projects/hbc')
+os.chdir('/home/zl/develop/projects/hbc')
 
 import pandas as pd
 import numpy as np
