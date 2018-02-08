@@ -15,8 +15,6 @@ plt.rcParams['font.sans-serif']=['SimHei']
 rcParams['figure.figsize'] = 80, 10
 
 # load training&test set
-df_train = pd.read_csv('./result/data_train_1.csv')
-df_test = pd.read_csv('./result/data_test_1.csv')
 df_train = pd.read_csv('./result/data_train.csv')
 df_test = pd.read_csv('./result/data_test.csv')
 idcol = 'userid'
@@ -256,15 +254,6 @@ print('score_cross:', round(np.mean(scores_cross), 5), 'std:', round(np.std(scor
 
 # write out prediction result
 y_test_pred = model_xgb_final.predict_proba(X_test)[:,1]
-
-#y_test_pred = np.array(pd.read_csv('./result/orderFuture_test-20180103-1.csv').iloc[:,1])
-#y_test_pred_super = np.zeros(len(y_test_pred))
-#alpha = 0.5
-#for i in range(len(y_test_pred)):
-#    if y_test_pred[i] < 0.2:
-#        y_test_pred_super[i] = y_test_pred[i] - alpha * (y_test_pred[i] - 0)
-#    elif y_test_pred[i] > 0.8:
-#        y_test_pred_super[i] = y_test_pred[i] + alpha * (1.0 - y_test_pred[i])
 
 df_profile = pd.read_csv('./data_train_test/userProfile_test.csv')
 restable = pd.DataFrame(np.concatenate((np.array(df_profile['userid']).reshape((-1,1)), y_test_pred.reshape((-1,1))), axis=1))
